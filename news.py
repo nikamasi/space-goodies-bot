@@ -13,7 +13,7 @@ def get_space_news() -> Union[bool, list]:
         "apiKey": utils.NEWS_API_KEY,
         "q": "astronomy",
         "from": date.strftime("%Y-%m-%d"),
-        "sortBy": ("popularity", "relevance"),
+        "sortBy": "relevance",
         "language": "en",
         "pageSize": 30,
     })

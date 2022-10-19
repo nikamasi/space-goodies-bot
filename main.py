@@ -36,7 +36,7 @@ def send_welcome(message):
 
 @bot.message_handler(commands=["help"])
 def send_instructions(message):
-    """Sends a list if available commands."""
+    """Sends a list of available commands."""
     bot.send_message(message.chat.id,
                      utils.DESCRIPTION)
 
@@ -44,7 +44,7 @@ def send_instructions(message):
 @bot.message_handler(commands=["iss"])
 def send_iss_location(message):
     """Requests ISS location data and
-    sends the location name with a Google Maps link to the user"""
+    sends the location name with a Google Maps link to the user."""
     try:
         data = iss.get_iss_location()
         if not data:
@@ -94,7 +94,7 @@ def send_apod(message):
 
 @bot.message_handler(commands=["quiz"])
 def send_quiz_question(message):
-    """Initiates a quiz search and sends a questions
+    """Initiates a quiz search and sends a question
     and a hidden answer to the user."""
     try:
         data = quiz.get_question()
@@ -112,7 +112,7 @@ def send_quiz_question(message):
 
 
 def handle_image_search(message):
-    """Initiates an image search and send results to the user."""
+    """Initiates an image search and sends results to the user."""
     if not re.match(utils.REGEXP, message.text):
         bot.send_message(message.chat.id,
                          utils.ACCEPTED_SYMBOLS_MESSAGE)
@@ -168,7 +168,7 @@ def send_space_news(message):
 
 @bot.message_handler(func=lambda message: True)
 def make_command(message):
-    """CStarts image search, if user is in a search sessions.
+    """Starts an image search, if user is in a search session.
     Otherwise, sends unknown command message."""
     if message.from_user.id in search_sessions:
         if search_sessions[message.from_user.id]:

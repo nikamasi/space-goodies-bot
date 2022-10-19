@@ -179,4 +179,5 @@ def make_command(message):
     bot.send_message(message.chat.id, utils.UNKNOWN_COMMAND_MESSAGE)
 
 
-bot.infinity_polling()
+if __name__ == '__main__':
+    bot.infinity_polling()

@@ -43,6 +43,5 @@ def get_picture_of_the_day() -> Union[bool, Dict[str, str]]:
     return {
         "photo": response["url"],
         "title": response["title"],
-        "author": response["copyright"],
         "explanation": response["explanation"]
     }

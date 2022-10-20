@@ -69,8 +69,7 @@ def send_apod(message):
         if not data:
             bot.send_message(message.chat.id, utils.ERROR_MESSAGE)
             return
-        header = (f"*{data['title']}*\n"
-                  f"_(by {data['author']})_\n")
+        header = (f"*{data['title']}*\n")
         description = data['explanation']
         if len(header+description) < utils.CAPTION_LIMIT:
             bot.send_photo(message.chat.id,

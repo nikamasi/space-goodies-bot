@@ -20,7 +20,10 @@ def search_nasa(query: str) -> Union[bool, Dict[str, str]]:
     items = response.json()['collection']['items']
     item = choice(items)
     title = item["data"][0]["title"]
-    photo = item["links"][0]["href"]
+    try:
+        photo = item["links"][0]["href"]
+    except KeyError:
+        photo = item["href"]
     date_string = item["data"][0]["date_created"]
     new_date_string = datetime.strptime(date_string,
                                         '%Y-%m-%dT%H:%M:%SZ').strftime(
